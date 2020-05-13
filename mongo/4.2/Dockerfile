@@ -4,8 +4,7 @@ FROM ubuntu:bionic
 RUN groupadd -r mongodb && useradd -r -g mongodb mongodb
 
 RUN echo "Asia/Shanghai" > /etc/timezone && \
-    dpkg-reconfigure -f noninteractive tzdata && \
-    cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+    dpkg-reconfigure -f noninteractive tzdata
 
 RUN set -eux; \
 	apt-get update; \
