@@ -6,6 +6,15 @@ ENV NGINX_VERSION 1.18.0
 ENV NJS_VERSION   0.4.0
 ENV PKG_RELEASE   1
 
+# 替换阿里云的源
+RUN echo "http://mirrors.aliyun.com/alpine/latest-stable/main/" > /etc/apk/repositories
+RUN echo "http://mirrors.aliyun.com/alpine/latest-stable/community/" >> /etc/apk/repositories
+RUN apk update --no-cache && apk upgrade --no-cache
+# 设置时区
+RUN apk --no-cache add tzdata \
+    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    && echo "Asia/Shanghai" > /etc/timezone
+
 RUN set -x \
 # create nginx user/group first, to be consistent throughout docker variants
     && addgroup -g 101 -S nginx \
