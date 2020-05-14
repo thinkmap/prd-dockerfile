@@ -19,3 +19,6 @@ RUN apk add --update --no-cache curl openssh vim wget bash python3 && rm -rf /va
 #RUN sed -i "s/set mouse=a/set mouse-=a/g" /usr/share/vim/vim82/defaults.vim
 RUN sed -i "s/set mouse=a/set mouse-=a/g" `find / -name defaults.vim`
 
+RUN apk add --no-cache mysql-client
+ENTRYPOINT ["mysql"]
+
