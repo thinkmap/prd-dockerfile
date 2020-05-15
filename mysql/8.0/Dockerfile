@@ -4,9 +4,8 @@ FROM debian:buster-slim
 RUN groupadd -r mysql && useradd -r -g mysql mysql
 
 RUN apt-get update && apt-get install -y --no-install-recommends gnupg dirmngr && rm -rf /var/lib/apt/lists/*
-
-RUN timedatectl set-timezone Asia/Shanghai && \
-    echo "Asia/Shanghai" > /etc/timezone && \
+#timedatectl set-timezone Asia/Shanghai
+RUN echo "Asia/Shanghai" > /etc/timezone && \
     dpkg-reconfigure -f noninteractive tzdata
 
 RUN apt-get update && apt-get install -y locales && rm -rf /var/lib/apt/lists/* \
