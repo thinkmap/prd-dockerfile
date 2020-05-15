@@ -5,7 +5,8 @@ RUN groupadd -r mysql && useradd -r -g mysql mysql
 
 RUN apt-get update && apt-get install -y --no-install-recommends gnupg dirmngr && rm -rf /var/lib/apt/lists/*
 #timedatectl set-timezone Asia/Shanghai
-RUN echo "Asia/Shanghai" > /etc/timezone && \
+RUN cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && 、
+    echo "Asia/Shanghai" > /etc/timezone && \
     dpkg-reconfigure -f noninteractive tzdata
 
 RUN apt-get update && apt-get install -y locales && rm -rf /var/lib/apt/lists/* \
