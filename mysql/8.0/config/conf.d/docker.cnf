@@ -2,10 +2,14 @@
 skip-host-cache
 #只能用IP地址
 skip-name-resolve
-server-id = 1 #服务Id唯一
+#服务Id唯一
+server-id = 1 
 port = 3306
 log-error = /var/log/mysql/error.log
+#设置时区
 default-time_zone='+8:00'
+#密码永不过期
+default_password_lifetime=0
 #数据库默认字符集
 character-set-server = utf8mb4
 #数据库字符集对应一些排序等规则 
