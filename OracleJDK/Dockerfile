@@ -1,4 +1,4 @@
-FROM alpine:3.11
+FROM alpine:latest
 
 # 替换阿里云的源
 RUN echo "http://mirrors.aliyun.com/alpine/latest-stable/main/" > /etc/apk/repositories
